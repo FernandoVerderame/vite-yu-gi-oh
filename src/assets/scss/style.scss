@@ -1,4 +1,6 @@
 @use 'vars' as *;
+@use 'reset';
+@use 'utils';
 
 body {
     font-family: $main-font;
