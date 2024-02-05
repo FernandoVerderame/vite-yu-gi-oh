@@ -1,6 +1,10 @@
 <script>
+import PokemonList from './pokemon/PokemonList.vue';
+
 export default {
-    name: 'AppMain'
+    name: 'AppMain',
+
+    components: { PokemonList }
 };
 </script>
 
@@ -16,7 +20,9 @@ export default {
         <section id="pokemon">
             <div class="container">
                 <div class="pokedeck">
-                    <div class="card-list-bg"></div>
+                    <div class="card-list-bg">
+                        <PokemonList />
+                    </div>
                 </div>
             </div>
         </section>
