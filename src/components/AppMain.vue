@@ -68,14 +68,13 @@ export default {
     margin-top: 50px;
 
     .pokedeck {
-        height: 400px;
         background-color: #DEDEDE;
         border-radius: 20px;
         padding: 50px 25px;
 
         .card-list-bg {
-            height: 100%;
             background-color: #575C61;
+            padding: 20px 10px;
         }
     }
 }
