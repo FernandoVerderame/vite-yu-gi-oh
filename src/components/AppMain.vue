@@ -5,15 +5,22 @@ export default {
 </script>
 
 <template>
-    <section id="buttons">
-        <div class="blue-btn"></div>
-        <div class="red btn"></div>
-        <div class="yellow btn"></div>
-        <div class="green btn"></div>
-    </section>
-    <section id="pokemon">
-        <main class="container"></main>
-    </section>
+    <main>
+        <section id="buttons">
+            <div class="blue-btn"></div>
+            <div class="red btn"></div>
+            <div class="yellow btn"></div>
+            <div class="green btn"></div>
+        </section>
+
+        <section id="pokemon">
+            <div class="container">
+                <div class="pokedeck">
+                    <div class="card-list-bg"></div>
+                </div>
+            </div>
+        </section>
+    </main>
 </template>
 
 <style lang="scss" scoped>
@@ -47,6 +54,22 @@ export default {
 
         &.green {
             background-color: green
+        }
+    }
+}
+
+#pokemon {
+    margin-top: 50px;
+
+    .pokedeck {
+        height: 400px;
+        background-color: #DEDEDE;
+        border-radius: 20px;
+        padding: 50px 25px;
+
+        .card-list-bg {
+            height: 100%;
+            background-color: #575C61;
         }
     }
 }
