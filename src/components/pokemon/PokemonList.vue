@@ -5,21 +5,22 @@ import PokemonCard from './PokemonCard.vue'
 export default {
     name: 'PokemonList',
 
-    data: () => ({ store }),
+    data: () => store,
 
     components: { PokemonCard }
 };
 </script>
 
 <template>
-    <section id="pokemon-list">
-        <div class="row g-4 row-cols-2 row-cols-md-3 row-cols-lg-5">
-            <div class="col" v-for="character in store.characters" :key="character['_id']">
-                <PokemonCard :name="character.name" :image="character.imageUrl" :number="character.number"
-                    :type="character.type1" />
-            </div>
-        </div>
-    </section>
+    <div className="pokedex">
+        <PokemonCard v-for="character in characters" :key="character._id" v-bind="character" />
+    </div>
 </template>
 
-<style></style>
+<style scoped>
+.pokedex {
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: repeat(5, 20%);
+}
+</style>

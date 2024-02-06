@@ -33,6 +33,7 @@ export default {
 .pokemon-card {
     border-radius: 20px;
     background-color: #DEFDE0;
+    margin: 10px;
 }
 
 h4 {
