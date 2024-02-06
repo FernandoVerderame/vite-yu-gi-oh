@@ -9,24 +9,23 @@ export default {
 </script>
 
 <template>
-    <header>
-        <div class="container">
-
-            <section id="buttons">
-                <div class="blue btn"></div>
-                <div class="red btn"></div>
-                <div class="yellow btn"></div>
-                <div class="green btn"></div>
-
-            </section>
-            <AppFilter />
-        </div>
+    <header class="container">
+        <section id="buttons">
+            <div class="blue btn"></div>
+            <div class="red btn"></div>
+            <div class="yellow btn"></div>
+            <div class="green btn"></div>
+        </section>
+        <AppFilter />
     </header>
 </template>
 
 <style lang="scss" scoped>
-#buttons {
+header {
     margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .btn {

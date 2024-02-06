@@ -1,4 +1,4 @@
-const typePokemon = [
+const typesPokemon = [
     "Bug",
     "Dark",
     "Dragon",
@@ -39,4 +39,4 @@ const colorMap = {
     "Water": '#DEF3FD'
 }
 
-export { typePokemon, colorMap }
+export { typesPokemon, colorMap }
