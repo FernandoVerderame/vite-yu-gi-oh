@@ -1,3 +1,5 @@
+const apiUri = 'https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons';
+
 const typesPokemon = [
     "Bug",
     "Dark",
@@ -39,4 +41,4 @@ const colorMap = {
     "Water": '#DEF3FD'
 }
 
-export { typesPokemon, colorMap }
+export { typesPokemon, colorMap, apiUri }
