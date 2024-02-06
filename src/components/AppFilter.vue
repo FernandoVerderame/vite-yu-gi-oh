@@ -1,12 +1,38 @@
 <script>
-import { typesPokemon } from '../data';
 
 export default {
     name: 'AppFilter',
 
     data: () => ({
-        typesPokemon
-    })
+        types: [
+            "Bug",
+            "Dark",
+            "Dragon",
+            "Electric",
+            "Fairy",
+            "Fighting",
+            "Fire",
+            "Flying",
+            "Ghost",
+            "Grass",
+            "Ground",
+            "Ice",
+            "Normal",
+            "Poison",
+            "Psychic",
+            "Rock",
+            "Steel",
+            "Water"
+        ]
+    }),
+
+    emits: ['types-change'],
+
+    methods: {
+        clickOption() {
+            this.$emit('types-change', value)
+        }
+    }
 };
 </script>
 
@@ -14,7 +40,9 @@ export default {
     <section id="filter">
         <select class="form-select">
             <option selected>All</option>
-            <option v-for="(type, i) in typesPokemon" :value="i">{{ type }}</option>
+            <option role="button" v-for="(type, i) in types" :value="i" @click="$emit('types-change', type)">{{
+                type }}
+            </option>
         </select>
     </section>
 </template>

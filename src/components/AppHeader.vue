@@ -4,7 +4,9 @@ import AppFilter from './AppFilter.vue';
 export default {
     name: 'AppHeader',
 
-    components: { AppFilter }
+    components: { AppFilter },
+
+    emits: ['types-change']
 };
 </script>
 
@@ -16,7 +18,7 @@ export default {
             <div class="yellow btn"></div>
             <div class="green btn"></div>
         </section>
-        <AppFilter />
+        <AppFilter @types-change="$emit('types-change', $event)" />
     </header>
 </template>
 
