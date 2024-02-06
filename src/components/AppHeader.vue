@@ -1,19 +1,26 @@
 <script>
+import AppFilter from './AppFilter.vue';
+
 export default {
-    name: 'AppHeader'
+    name: 'AppHeader',
+
+    components: { AppFilter }
 };
 </script>
 
 <template>
     <header>
-        <section id="buttons">
-            <div class="container">
+        <div class="container">
+
+            <section id="buttons">
                 <div class="blue btn"></div>
                 <div class="red btn"></div>
                 <div class="yellow btn"></div>
                 <div class="green btn"></div>
-            </div>
-        </section>
+
+            </section>
+            <AppFilter />
+        </div>
     </header>
 </template>
 
