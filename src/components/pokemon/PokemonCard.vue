@@ -1,17 +1,25 @@
 <script>
+import { colorMap } from '../../data';
 export default {
     name: 'PokemonCard',
+
     props: {
         name: String,
         image: String,
         number: Number,
         type: String
+    },
+
+    computed: {
+        bgColor() {
+            return colorMap[this.type];
+        }
     }
 };
 </script>
 
 <template>
-    <div class="pokemon-card text-center p-2">
+    <div class="pokemon-card text-center p-2" :style="`background-color: ${bgColor}`">
         <div class="thumb">
             <img :src="image" :alt="name" class="img-fluid rounded-circle mb-3">
         </div>
