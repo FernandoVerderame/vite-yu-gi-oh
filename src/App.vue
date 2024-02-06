@@ -1,7 +1,7 @@
 <script>
 import axios from 'axios';
+import { apiUri } from './data';
 import { store } from './data/store.js'
-const endpoint = 'https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons'
 import AppMain from './components/AppMain.vue';
 import AppHeader from './components/AppHeader.vue';
 
@@ -10,16 +10,31 @@ export default {
 
   components: { AppMain, AppHeader },
 
+  methods: {
+    fetchCharacters(endpoint = apiUri) {
+      axios.get(endpoint).then(res => {
+        const characters = res.data.docs;
+
+        store.characters = characters.map(character => {
+          const { name, number, type1, imageUrl } = character;
+          return { name, number, type: type1, image: imageUrl };
+        })
+      })
+    },
+    searchCharacters(type) {
+      const searchEndpoint = `${apiUri}?eq[type1]=${type}`;
+      this.fetchCharacters(searchEndpoint)
+    }
+  },
+
   created() {
-    axios.get(endpoint).then(res => {
-      store.characters = res.data.docs
-    });
+    this.fetchCharacters();
   }
 };
 </script>
 
 <template>
-  <AppHeader />
+  <AppHeader @types-change="searchCharacters" />
   <AppMain />
 </template>
 
