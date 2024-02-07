@@ -3,47 +3,24 @@
 export default {
     name: 'BaseSelect',
 
-    data: () => ({
-        types: [
-            "Bug",
-            "Dark",
-            "Dragon",
-            "Electric",
-            "Fairy",
-            "Fighting",
-            "Fire",
-            "Flying",
-            "Ghost",
-            "Grass",
-            "Ground",
-            "Ice",
-            "Normal",
-            "Poison",
-            "Psychic",
-            "Rock",
-            "Steel",
-            "Water"
-        ]
-    }),
+    data: () => ({ selectedOption: '' }),
 
-    emits: ['types-change'],
+    props: {
+        defaultLabel: String,
+        defaultValue: String,
+        options: Array
+    },
 
-    methods: {
-        clickOption() {
-            this.$emit('types-change', value)
-        }
-    }
+    emits: ['option-change']
 };
 </script>
 
 <template>
     <section id="filter">
-        <select class="form-select">
-            <option selected>All</option>
-            <option role="button" v-for="(type, i) in types" :value="i" @click="$emit('types-change', type)">{{
-                type }}
-            </option>
-        </select>
+        <section v-model="selectedOption" @change="$emit('option-change', selectedOption)">
+            <option :value="defaultValue || ''">{{ defaultLabel || '---' }}</option>
+            <option v-for="(option, i) in options" :key="option.id" :value="option.value">{{ option.label }}</option>
+        </section>
     </section>
 </template>
 
