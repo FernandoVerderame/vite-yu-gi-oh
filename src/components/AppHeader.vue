@@ -1,10 +1,10 @@
 <script>
-import AppFilter from './AppFilter.vue';
+import BaseSelect from './BaseSelect.vue';
 
 export default {
     name: 'AppHeader',
 
-    components: { AppFilter },
+    components: { BaseSelect },
 
     emits: ['types-change']
 };
@@ -18,7 +18,7 @@ export default {
             <div class="yellow btn"></div>
             <div class="green btn"></div>
         </section>
-        <AppFilter @types-change="$emit('types-change', $event)" />
+        <BaseSelect @types-change="$emit('types-change', $event)" />
     </header>
 </template>
 

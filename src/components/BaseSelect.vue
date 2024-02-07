@@ -1,7 +1,7 @@
 <script>
 
 export default {
-    name: 'AppFilter',
+    name: 'BaseSelect',
 
     data: () => ({
         types: [
