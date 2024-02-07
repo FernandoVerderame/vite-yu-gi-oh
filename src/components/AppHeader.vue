@@ -1,12 +1,15 @@
 <script>
 import BaseSelect from './BaseSelect.vue';
+import { store } from '../data/store.js'
 
 export default {
     name: 'AppHeader',
 
     components: { BaseSelect },
 
-    emits: ['types-change']
+    data: () => ({ store }),
+
+    emits: ['type-change']
 };
 </script>
 
@@ -18,7 +21,8 @@ export default {
             <div class="yellow btn"></div>
             <div class="green btn"></div>
         </section>
-        <BaseSelect @types-change="$emit('types-change', $event)" />
+
+        <BaseSelect default-label="Tutti i tipi" :options="store.types" @option-change="$emit('type-change', event)" />
     </header>
 </template>
 
